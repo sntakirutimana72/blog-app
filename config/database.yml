@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: blog_app_development
-  username: steve_dev
+  username: nuru
   password: development@123_
 
   # Connect on a TCP socket. Omitted by default since the client uses a
