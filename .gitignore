@@ -36,3 +36,4 @@
 
 # Ignore npm installation folder
 /node_modules/
+package-lock.json
