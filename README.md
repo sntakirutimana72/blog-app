@@ -1,24 +1,63 @@
-# README
+# Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An educational project that mimics the features of a blog web-app.
 
-Things you may want to cover:
 
-* Ruby version
+## Built With
 
-* System dependencies
+- HTML/CSS
+- Ruby
+- Ruby on Rails
+- Postgresql
 
-* Configuration
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get this program running on your computer,
 
-* How to run the test suite
+1. First, install Ruby
+2. Clone the project repository ([link](.))
 
-* Services (job queues, cache servers, search engines, etc.)
+### Run (_**terminal**_)
 
-* Deployment instructions
+For **dependencies**, run
+```
+  $ bundle install
+  $ npm i
+```
 
-* ...
+For **tests**, run
+```RSpec
+  $ rspec test
+```
+
+For **Rubocop** fixes, run
+```rubocop
+  $ rubocop -A
+```
+
+
+## Authors
+
+👤 **Steve**
+
+- GitHub: [@sntakirutimana72](https://github.com/sntakirutimana72/)
+- LinkedIn: [steve-ntakirutimana](https://www.linkedin.com/in/steve-ntakirutimana/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Fellow Micronauts
+
+## 📝 License
+
+This project is **MIT** licensed.
