@@ -1,13 +1,15 @@
 # Blog App
 
-An educational project that mimics the features of a blog web-app.
+An educational project that mimics the features of a blog web-app. The app allows users to 
+create posts, comment on posts, and interact with posts by giving likes. 
+The app uses **postgresql** database to persist users data.
 
 
 ## Built With
 
 - HTML/CSS
 - Ruby
-- Ruby on Rails
+- Rails
 - Postgresql
 
 
@@ -18,7 +20,7 @@ To get this program running on your computer,
 1. First, install Ruby
 2. Clone the project repository ([link](.))
 
-### Run (_**terminal**_)
+### Run (_terminal_)
 
 For **dependencies**, run
 ```
@@ -31,13 +33,19 @@ For **tests**, run
   $ rspec test
 ```
 
-For **Rubocop** fixes, run
-```rubocop
+For linters' fixes, run
+```
   $ rubocop -A
+  $ npx stylelint "**/*.{css,scss}" --fix
+```
+
+To serve the app in the browser, run
+```rails
+  $ rails server
 ```
 
 
-## Authors
+## Author
 
 👤 **Steve**
 
