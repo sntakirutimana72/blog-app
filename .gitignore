@@ -35,6 +35,6 @@
 /.idea/
 
 # Ignore dependencies
-/vendor/bundle
+/vendor/bundle/
 /node_modules/
 package-lock.json
