@@ -34,6 +34,7 @@
 /.vscode/
 /.idea/
 
-# Ignore npm installation folder
+# Ignore dependencies
+/vendor/bundle/
 /node_modules/
 package-lock.json
