@@ -37,6 +37,12 @@ describe Post, type: :model do
     end
   end
 
+  context 'Associations' do
+    it { should have_many(:comments) }
+    it { should have_many(:likes) }
+    it { should belong_to(:author) }
+  end
+
   context 'with valid attributes' do
     it 'is valid' do
       expect(@post).to be_valid

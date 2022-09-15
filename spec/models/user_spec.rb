@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe User, type: :model do
   before(:each) do
-    @user = described_class.new(
+    @user = described_class.create(
       name: 'Tom',
       photo: 'https://image.some-domain.url',
       bio: 'SOME_USER_BIO',
@@ -30,6 +30,12 @@ describe User, type: :model do
       expect(recent_three.count).to eq(3)
       expect(recent_three.first).to eq(posts[1])
     end
+  end
+
+  context 'Associations' do
+    it { should have_many(:posts) }
+    it { should have_many(:likes) }
+    it { should have_many(:comments) }
   end
 
   context 'with valid attributes' do
