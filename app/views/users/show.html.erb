@@ -1,0 +1,12 @@
+<%= render(template: 'layouts/user_of_post', locals: {author: @user}) %>
+
+<div>
+  <h4>Bio</h4>
+  <p><%= @user.bio %></p>
+</div>
+
+<% @user.posts.each do |post| %>
+  <%= render(template: 'layouts/post_of_user', locals: {post: post}) %>
+<% end %>
+
+<%= link_to('See all posts', user_posts_path(@user)) %>

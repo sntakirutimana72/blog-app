@@ -1,0 +1,7 @@
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= render(template: 'layouts/user_of_post', locals: {author: user}) %>
+    </li>
+  <% end %>
+</ul>

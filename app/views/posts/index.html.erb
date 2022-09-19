@@ -1,0 +1,12 @@
+<%= render(template: 'layouts/user_of_post', locals: {author: @author}) %>
+
+<% @posts.each do |post| %>
+  <div><%= render(template: 'layouts/post_of_user', locals: {post: post}) %></div>
+  <ul>
+    <% post.recent_five_comments.each do |comment| %>
+      <li><%= comment.author.name %>: <%= comment.text %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<button type="button">Pagination</button>
