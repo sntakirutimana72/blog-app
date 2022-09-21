@@ -1,12 +1,16 @@
-<%= render(template: 'layouts/user_of_post', locals: {author: @user}) %>
+<section class="users-show">
+  <%= render 'shared/author', author: @user %>
 
-<div>
-  <h4>Bio</h4>
-  <p><%= @user.bio %></p>
-</div>
+  <div class="bio">
+    <h4>Bio</h4>
+    <p><%= @user.bio %></p>
+  </div>
 
-<% @user.posts.each do |post| %>
-  <%= render(template: 'layouts/post_of_user', locals: {post: post}) %>
-<% end %>
+  <ul class="recent-posts-list">
+    <% @user.recent_three_posts.each do |post| %>
+      <%= render 'shared/post', post: %>
+    <% end %>
+  </ul>
 
-<%= link_to('See all posts', user_posts_path(@user)) %>
+  <%= link_to 'SEE ALL POSTS', user_posts_path(@user), class: 'all-posts' %>
+</section>

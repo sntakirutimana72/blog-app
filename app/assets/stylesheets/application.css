@@ -12,4 +12,47 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
+* {
+  color: #121215;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0 10px;
+  background-color: #f5f6fa;
+}
+
+main {
+  padding: 60px;
+  max-width: 900px;
+  margin: 50px auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.08);
+  background-color: #fafafa;
+  min-height: calc(100vh - 100px);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+<div class="post-comments">
+  <% if has_comments(post) %>
+    <ul>
+      <% post.recent_five_comments.each do |comment| %>
+        <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no comments for this post.</p>
+  <% end %>
+</div>

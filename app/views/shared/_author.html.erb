@@ -1,0 +1,7 @@
+<%= link_to author, class: 'author-of-post' do %>
+  <%= image_tag author.photo, alt: 'author' %>
+  <span>
+    <span class="author-post-desc"><%= author.name %></span>
+    <span class="author-post-desc">Number of posts: <%= author.posts_counter %></span>
+  </span>
+<% end %>
