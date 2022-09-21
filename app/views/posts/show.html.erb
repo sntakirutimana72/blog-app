@@ -1,8 +1,13 @@
-<div>
-  <h3>
-    Post #<%= @post.title %> by <%= @post.author.name %>
-    <span>comments: <%= @post.comments_counter %></span>, 
-    <span>Likes: <%= @post.likes_counter %></span>
-  </h3>
-  <p><%= @post.text %></p>
+<div class="post-show">
+  <div>
+    <h3>
+      Post #<%= @post.id %>: <%= @post.title %> by <%= @post.author.name %>
+      <i>
+        comments: <%= @post.comments_counter %>,
+        Likes: <%= @post.likes_counter %>
+      </i>
+    </h3>
+    <p><%= @post.text %></p>
+  </div>
+  <%= render 'shared/comment', post: @post %>
 </div>

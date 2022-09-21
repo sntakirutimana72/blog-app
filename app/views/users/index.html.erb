@@ -1,7 +1,7 @@
-<ul>
-  <% @users.each do |user| %>
+<ul class="authors-list">
+  <% @users.each do |author| %>
     <li>
-      <%= render(template: 'layouts/user_of_post', locals: {author: user}) %>
+      <%= render 'shared/author', author: %>
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,38 @@
+.users-show {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.all-posts {
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: large;
+  border: none;
+  background-color: #0290ff;
+  max-width: max-content;
+  align-self: center;
+  margin-top: 15px;
+}
+
+.bio {
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.bio h4 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.recent-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 15px;
+}
