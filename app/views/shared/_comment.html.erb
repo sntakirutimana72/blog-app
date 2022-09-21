@@ -1,5 +1,5 @@
 <div class="post-comments">
-  <% if has_comments(post) %>
+  <% if comments?(post) %>
     <ul>
       <% post.recent_five_comments.each do |comment| %>
         <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
