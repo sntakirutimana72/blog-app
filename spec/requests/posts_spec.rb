@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  before(:each) do
+  before(:all) do
     @user = User.create(name: 'Tom', photo: '', posts_counter: 0)
     @post = Post.create(
       author: @user,
@@ -22,8 +22,11 @@ RSpec.describe PostsController, type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it('should render :index template') do
+    it('should render correct templates') do
       expect(response).to render_template(:index)
+      expect(response).to render_template('shared/_author')
+      expect(response).to render_template('shared/_post')
+      expect(response).to render_template('shared/_comment')
     end
 
     it('should assign Post.where(author_id = params[:user_id]) to @posts') do
@@ -38,8 +41,9 @@ RSpec.describe PostsController, type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it('rendered :show template') do
+    it('should render correct templates') do
       expect(response).to render_template(:show)
+      expect(response).to render_template('shared/_comment')
     end
 
     it('should assign Post.where(author_id: params[:user_id], id: params[:id]).first to @post') do
