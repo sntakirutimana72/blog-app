@@ -51,7 +51,7 @@ RSpec.describe PostsController, type: :request do
     end
 
     it('response content should contain `@post.text`') do
-      expect(response.body).to match(%r{#{@post.text}})
+      expect(response.body).to match(/#{@post.text}/)
     end
   end
 end
