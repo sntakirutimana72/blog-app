@@ -1,21 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
-*/
-
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+@import url("https://use.fontawesome.com/releases/v6.2.0/css/all.css");
 
 * {
   color: #121215;
@@ -53,6 +37,36 @@ li {
   list-style: none;
 }
 
-button {
+.field {
+  width: 100%;
+  font-size: 15px;
+  padding: 10px 15px;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #fafafa;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.field:focus {
+  border-color: #00f;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 1);
+}
+
+.field-label {
+  display: block;
+  padding-bottom: 8px;
+}
+
+.btn {
   cursor: pointer;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: large;
+  border: none;
+  background-color: #0290ff;
+  max-width: max-content;
 }

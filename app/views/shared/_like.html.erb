@@ -1,0 +1,9 @@
+<%= form_with url: user_post_likes_path(post.author, post), method: :post, local: true do %>
+  <button type="submit" class="like-btn">
+    <% if post.likes_counter.zero? %>
+      <i class="fa-regular fa-thumbs-up"></i>
+    <% else %>
+      <i class="fa-solid fa-thumbs-up"></i>
+    <% end %>
+  </button>
+<% end %>

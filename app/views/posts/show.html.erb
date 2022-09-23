@@ -1,13 +1,21 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'posts/show' %>
+  <%= stylesheet_link_tag 'shared/_comment' %>
+  <%= stylesheet_link_tag 'shared/_comment_form' %>
+<% end %>
+
 <div class="post-show">
-  <div>
+  <div class="post-show-preview">
     <h3>
-      Post #<%= @post.id %>: <%= @post.title %> by <%= @post.author.name %>
-      <i>
-        comments: <%= @post.comments_counter %>,
-        Likes: <%= @post.likes_counter %>
-      </i>
+      <b>
+        Post #<%= @post.id %>: <%= @post.title %> by <%= @post.author.name %>
+      </b>
+      <span>
+        <i>comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></i>
+      </span>
     </h3>
-    <p><%= @post.text %></p>
+    <p class="post-desc"><%= @post.text %></p>
+    <%= render 'shared/like', post: @post %>
   </div>
   <%= render 'shared/comment', post: @post %>
 </div>

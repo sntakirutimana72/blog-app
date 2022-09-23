@@ -1,3 +1,11 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'users/show' %>
+  <%= stylesheet_link_tag 'shared/_author' %>
+  <%= stylesheet_link_tag 'shared/_post' %>
+<% end %>
+
+<%= render 'shared/flashes' %>
+
 <section class="users-show">
   <%= render 'shared/author', author: @user %>
 
@@ -7,10 +15,13 @@
   </div>
 
   <ul class="recent-posts-list">
+    <li>
+      <%= link_to 'Add New Post', new_user_post_path(@user), class: 'btn add-post' %>
+    </li>
     <% @user.recent_three_posts.each do |post| %>
       <%= render 'shared/post', post: %>
     <% end %>
   </ul>
 
-  <%= link_to 'SEE ALL POSTS', user_posts_path(@user), class: 'all-posts' %>
+  <%= link_to 'SEE ALL POSTS', user_posts_path(@user), class: 'btn all-posts' %>
 </section>

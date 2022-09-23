@@ -1,11 +1,13 @@
 <div class="post-comments">
-  <% if comments?(post) %>
+  <% if zero_comments?(post) %>
+    <p>There are no comments for this post.</p>
+  <% else %>
     <ul>
       <% post.recent_five_comments.each do |comment| %>
         <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
       <% end %>
     </ul>
-  <% else %>
-    <p>There are no comments for this post.</p>
   <% end %>
 </div>
+
+<%= render 'shared/comment_form', post: %>

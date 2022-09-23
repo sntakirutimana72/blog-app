@@ -1,0 +1,13 @@
+.new-post {
+  padding: 0 10px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.new-post h1 {
+  padding-bottom: 25px;
+}
+
+.field-wrapper {
+  margin-bottom: 30px;
+}

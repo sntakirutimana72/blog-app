@@ -1,10 +1,16 @@
 <li class="post-of-author">
-  <%= link_to user_post_path(post.author, post) do %>
-    <h4>Post #<%= post.id %>: <%= post.title %></h4>
-    <p><%= post.text %></p>
-    <p>
-      <small>Comments: <%= post.comments_counter %></small>,
-      <small>Likes: <%= post.likes_counter %></small>
-    </p>
-  <% end %>
+  <div>
+    <h4>
+      <%= link_to user_post_path(post.author, post), class: 'post-anchor' do %>
+        Post #<%= post.id %>: <%= post.title %>
+      <% end %>
+    </h4>
+    <p class="post-desc"><%= post.text %></p>
+    <div class="post-interactions">
+      <%= render 'shared/like', post: %>
+      <small>
+        <i>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></i>
+      </small>
+    </div>
+  </div>
 </li>
