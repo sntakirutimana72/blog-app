@@ -4,17 +4,16 @@
   gap: 5px;
 }
 
-.all-posts {
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  text-align: center;
-  font-size: large;
-  border: none;
-  background-color: #0290ff;
-  max-width: max-content;
+.users-show .btn.all-posts {
   align-self: center;
   margin-top: 15px;
+}
+
+.users-show .btn.add-post {
+  float: right;
+  margin-right: 5px;
+  margin-bottom: -2px;
+  background-color: blue;
 }
 
 .bio {

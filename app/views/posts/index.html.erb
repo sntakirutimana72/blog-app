@@ -1,4 +1,15 @@
-<%= render 'shared/author', author: @author %>
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'posts/index' %>
+  <%= stylesheet_link_tag 'shared/_author' %>
+  <%= stylesheet_link_tag 'shared/_post' %>
+  <%= stylesheet_link_tag 'shared/_comment' %>
+  <%= stylesheet_link_tag 'shared/_comment_form' %>
+<% end %>
+
+<div class="links-group">
+  <%= render 'shared/author', author: @author %>
+  <%= link_to 'Add New Post', new_user_post_path(@author), class: 'btn add-post-btn' %>
+</div>
 
 <div class="user-posts">
   <% @posts.each do |post| %>
@@ -8,5 +19,5 @@
     </div>
   <% end %>
 
-  <button type="button" class="pagination">Pagination</button>
+  <button type="button" class="btn pagination">Pagination</button>
 </div>
