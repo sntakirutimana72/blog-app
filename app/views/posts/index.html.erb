@@ -7,8 +7,8 @@
 <% end %>
 
 <div class="links-group">
-  <%= render 'shared/author', author: @author %>
-  <%= link_to 'Add New Post', new_user_post_path(@author), class: 'btn add-post-btn' %>
+  <%= render 'shared/author', author: %>
+  <%= link_to 'Add New Post', new_user_post_path(author), class: 'btn add-post-btn' %>
 </div>
 
 <div class="user-posts">
