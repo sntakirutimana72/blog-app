@@ -19,19 +19,19 @@ RSpec.describe 'Add Post Form', type: :feature do
       expect(page).to have_css("input[type='text']", count: 1)
       expect(page).to have_css('textarea', count: 1)
     end
-    
+
     it 'should contain a submit button' do
       expect(page).to have_css("input[type='submit']", count: 1)
     end
   end
-  
+
   describe 'Form Submission' do
     it 'should not submit without title' do
       fill_in(:post_text, with: 'TEST_NEW_POST_TEXT')
       submit.click
       expect(current_path).to_not eq(redirected_to)
     end
-    
+
     it 'should submit successfully' do
       old_counter = User.first.posts_counter
       fill_in(:post_title, with: 'TEST_NEW_POST_TITLE')
