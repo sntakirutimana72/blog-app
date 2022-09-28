@@ -11,11 +11,11 @@
         Post #<%= @post.id %>: <%= @post.title %> by <%= @post.author.name %>
       </b>
       <span>
-        <i>comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></i>
+        <i>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></i>
       </span>
     </h3>
     <p class="post-desc"><%= @post.text %></p>
     <%= render 'shared/like', post: @post %>
   </div>
-  <%= render 'shared/comment', post: @post %>
+  <%= render 'shared/comment', all:, post: @post %>
 </div>
