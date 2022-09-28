@@ -3,8 +3,8 @@
     <p>There are no comments for this post.</p>
   <% else %>
     <ul>
-      <% post.recent_five_comments.each do |comment| %>
-        <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+      <% which_comments(post, all).each do |comment| %>
+        <li><b><%= comment.author.name %></b>: <%= comment.text %></li>
       <% end %>
     </ul>
   <% end %>
