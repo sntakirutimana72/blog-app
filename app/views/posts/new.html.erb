@@ -1,10 +1,21 @@
 <% content_for :styles do %>
-  <%= stylesheet_link_tag 'posts/new' %>
+  <%= stylesheet_link_tag 'users/devise/default' %>
 <% end %>
 
-<%= render 'shared/flashes' %>
+<section class="devise-form-sec">
+  <h2>Add New Post</h2>
 
-<section class="new-post">
-  <h1>Add New Post</h1>
-  <%= render 'form', post:, author: %>
+  <%= form_with model: post, url: user_posts_path(author), method: :post, local: true, scope: :post do |f| %>
+    <div class="field-wrapper">
+      <%= f.label :title, class: 'field-label' %>
+      <%= f.text_field :title, { class: 'field', placeholder: 'Title', required: true } %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :text, class: 'field-label' %>
+      <%= f.text_area :text, { class: 'field', placeholder: 'Description', required: true } %>
+    </div>
+
+    <%= f.submit 'Add Post', class: 'btn' %>
+  <% end %>
 </section>
