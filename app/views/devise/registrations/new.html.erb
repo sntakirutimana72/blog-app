@@ -1,0 +1,50 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'users/devise/default' %>
+<% end %>
+
+<section class="devise-form-sec">
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field-wrapper">
+      <%= f.label :name, class: "field-label" %>
+      <%= f.text_field :name, class: "field", placeholder: "name", autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :email, class: "field-label" %>
+      <%= f.email_field :email, class: "field", placeholder: "email", autocomplete: "email" %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :password, class: "field-label" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, class: "field", placeholder: "password", autocomplete: "new-password" %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :password_confirmation, class: "field-label" %>
+      <%= f.password_field :password_confirmation, class: "field", placeholder: "re-type password", autocomplete: "new-password" %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :photo, class: "field-label" %>
+      <%= f.text_field :photo, class: "field", placeholder: "user profile photo", autocomplete: "photo" %>
+    </div>
+
+    <div class="field-wrapper">
+      <%= f.label :posts_counter, class: "field-label" %>
+      <%= f.number_field :posts_counter, class: "field", min: 0, value: 0 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
