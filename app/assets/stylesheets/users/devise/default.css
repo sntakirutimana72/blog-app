@@ -1,0 +1,31 @@
+.devise-form-sec {
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 40px 25px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+}
+
+.devise-form-sec h2 {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.devise-form-sec form,
+.devise-form-sec .field-wrapper {
+  margin-bottom: 20px;
+}
+
+.devise-form-sec .btn {
+  max-width: unset;
+  width: 100%;
+}
+
+.devise-form-sec em {
+  font-size: smaller;
+}

@@ -1,0 +1,22 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'users/devise/default' %>
+<% end %>
+
+<section class="devise-form-sec">
+  <h2>Forgot your password?</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field-wrapper">
+      <%= f.label :email, class: "field-label" %>
+      <%= f.email_field :email, class: "field", placeholder: "enter your email", autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset instructions", class: "btn" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
