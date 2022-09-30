@@ -7,10 +7,6 @@ class Comment < ApplicationRecord
   validates :text, presence: true
 
   def increment_comments_counter
-    post.with_lock do
-      state = post.comments_counter || 0
-      post.comments_counter = state + 1
-      post.save
-    end
+    post.increment!(:comments_counter)
   end
 end
