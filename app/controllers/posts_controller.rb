@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @posts = Post
       .includes(:author)
@@ -11,8 +13,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.where(author_id: params[:user_id], id: params[:id]).first
-
     respond_to do |res|
       res.html { render(:show, locals: { all: true }) }
     end
@@ -43,6 +43,22 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    Post.find_by(**destroy_params).delete
+    respond_to do |res|
+      res.html { redirect_to(user_path(current_user)) }
+    end
+  end
+
+  private
+
+  def destroy_params
+    {
+      id: params[:id],
+      author_id: current_user.id
+    }
   end
 
   def post_params

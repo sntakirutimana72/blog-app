@@ -1,9 +1,13 @@
-<% content_for :styles do %>
+<% content_for(:styles) do %>
   <%= stylesheet_link_tag 'posts/index' %>
   <%= stylesheet_link_tag 'shared/_author' %>
   <%= stylesheet_link_tag 'shared/_post' %>
   <%= stylesheet_link_tag 'shared/_comment' %>
   <%= stylesheet_link_tag 'shared/_comment_form' %>
+<% end %>
+
+<% content_for(:navs) do %>
+  <%= render 'shared/navs/main' %>
 <% end %>
 
 <div class="links-group">

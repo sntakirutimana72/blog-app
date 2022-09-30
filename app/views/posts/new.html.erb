@@ -1,5 +1,9 @@
-<% content_for :styles do %>
+<% content_for(:styles) do %>
   <%= stylesheet_link_tag 'users/devise/default' %>
+<% end %>
+
+<% content_for(:navs) do %>
+  <%= render 'shared/navs/main' %>
 <% end %>
 
 <section class="devise-form-sec">

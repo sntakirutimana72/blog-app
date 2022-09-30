@@ -7,9 +7,19 @@
     </h4>
     <p class="post-desc"><%= post.text %></p>
     <div class="post-interactions">
-      <%= render 'shared/like', post: %>
+      <% if can?(:destroy, post) %>
+        <%= link_to('delete', user_post_path(current_user, post), data: { turbo_method: :delete }) %>
+      <% end %>
+
+      <% if can?(:create, Like) %>
+        <%= render 'shared/like', post: %>
+      <% end %>
+
       <small>
-        <i>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></i>
+        <i>
+          Comments: <%= post.comments_counter %>
+          Likes: <%= post.likes_counter %>
+        </i>
       </small>
     </div>
   </div>

@@ -1,7 +1,11 @@
-<% content_for :styles do %>
+<% content_for(:styles) do %>
   <%= stylesheet_link_tag 'users/show' %>
   <%= stylesheet_link_tag 'shared/_author' %>
   <%= stylesheet_link_tag 'shared/_post' %>
+<% end %>
+
+<% content_for(:navs) do %>
+  <%= render 'shared/navs/main' %>
 <% end %>
 
 <section class="users-show">

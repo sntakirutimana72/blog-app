@@ -4,10 +4,18 @@
   <% else %>
     <ul>
       <% which_comments(post, all).each do |comment| %>
-        <li><b><%= comment.author.name %></b>: <%= comment.text %></li>
+        <li>
+          <b><%= comment.author.name %></b>: <%= comment.text %>
+
+          <% if can?(:destroy, comment) %>
+            <%= link_to('delete', user_post_comment_path(current_user, post, comment), data: { turbo_method: :delete }) %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   <% end %>
 </div>
 
-<%= render 'shared/comment_form', post: %>
+<% if can?(:create, Comment) %>
+  <%= render 'shared/comment_form', post: %>
+<% end %>

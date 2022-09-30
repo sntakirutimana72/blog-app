@@ -1,7 +1,11 @@
-<% content_for :styles do %>
+<% content_for(:styles) do %>
   <%= stylesheet_link_tag 'posts/show' %>
   <%= stylesheet_link_tag 'shared/_comment' %>
   <%= stylesheet_link_tag 'shared/_comment_form' %>
+<% end %>
+
+<% content_for(:navs) do %>
+  <%= render 'shared/navs/main' %>
 <% end %>
 
 <div class="post-show">
@@ -15,7 +19,17 @@
       </span>
     </h3>
     <p class="post-desc"><%= @post.text %></p>
-    <%= render 'shared/like', post: @post %>
+
+    <% if can?(:create, Like) %>
+      <%= render 'shared/like', post: @post %>
+    <% end %>
+
+    <% if can?(:destroy, @post) %>
+      <%= link_to('delete', user_post_path(current_user, @post), data: { turbo_method: :delete }) %>
+    <% end %>
+
   </div>
+
   <%= render 'shared/comment', all:, post: @post %>
+
 </div>
