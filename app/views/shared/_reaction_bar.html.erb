@@ -1,0 +1,15 @@
+<ul class="reactions-belt">
+  <li>
+    <%= render('shared/like', post:) %>
+  </li>
+  <li>
+    <%= post.comments_counter %> comments
+  </li>
+
+  <% if can?(:destroy, Like) %>
+    <li>
+      <%= link_to('delete', destroy_user_post_comment_path(user, post), method: :delete) %>
+    </li>
+  <% end %>
+
+</ul>

@@ -1,6 +1,10 @@
-<% content_for :styles do %>
+<% content_for(:styles) do %>
   <%= stylesheet_link_tag 'users/index' %>
   <%= stylesheet_link_tag 'shared/_author' %>
+<% end %>
+
+<% content_for(:navs) do %>
+  <%= render 'shared/navs/main' %>
 <% end %>
 
 <ul class="authors-list">
