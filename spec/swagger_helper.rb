@@ -31,6 +31,16 @@ RSpec.configure do |config|
         }
       ],
       components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: :JWT,
+            name: :Authorization,
+            in: :header,
+            required: true
+          }
+        },
         schemas: {
           auth: {
             type: :object,
@@ -47,7 +57,7 @@ RSpec.configure do |config|
             },
             required: :token
           },
-          comment_get: {
+          comments: {
             type: :array,
             items: {
               type: :object,
@@ -56,6 +66,22 @@ RSpec.configure do |config|
                 text: { type: :string },
                 post_id: { type: :integer },
                 author_id: { type: :integer },
+                created_at: { type: :string },
+                updated_at: { type: :string }
+              }
+            }
+          },
+          posts: {
+            type: :array,
+            items: {
+              type: :object,
+              properties: {
+                id: { type: :integer },
+                title: { type: :string },
+                text: { type: :string },
+                author_id: { type: :integer },
+                comments_counter: { type: :integer },
+                likes_counter: { type: :integer },
                 created_at: { type: :string },
                 updated_at: { type: :string }
               }
@@ -72,8 +98,7 @@ RSpec.configure do |config|
             type: :object,
             properties: {
               error: { type: :string }
-            },
-            required: :error
+            }
           }
         }
       }

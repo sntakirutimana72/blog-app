@@ -6,11 +6,12 @@ class Api::ApiController < ActionController::API
   private
 
   def authenticate_user!
+    p request.headers[:Authorization]
     token = request.headers[:Authorization]
     token = token.split.last if token
     payload = jwt_decrypt(token)
     @signed_user = User.find(payload[:user_id])
   rescue StandardError
-    render(json: 'Invalid Credentials', status: :unauthorized)
+    render(json: '', status: :unauthorized)
   end
 end

@@ -3,7 +3,11 @@ class Api::V1::PostsController < Api::ApiController
 
   def index
     @posts = Post.where(author_id: params[:user_id])
-    status = @posts.empty? ? :not_found : :ok
-    render(json: @posts, status:)
+
+    if @posts.empty?
+      render(json: '', status: :not_found)
+    else
+      render(json: @posts, status: :ok)
+    end
   end
 end

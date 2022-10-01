@@ -11,11 +11,12 @@ RSpec.describe 'api/v1/comments', type: :request do
       produces 'application/json'
 
       response(200, '') do
-        schema '$ref' => '#/components/schemas/comment_get'
+        schema '$ref' => '#/components/schemas/comments'
+
         run_test!
       end
 
-      response(404, '') { run_test! }
+      response(404, 'comments not found') { run_test! }
     end
   end
 
@@ -27,15 +28,15 @@ RSpec.describe 'api/v1/comments', type: :request do
       produces 'application/json'
 
       parameter name: :comment, in: :body, schema: { '$ref' => '#/components/schemas/comment' }
-      parameter name: :Authentication, in: :header, required: true, type: :string
+      security [{ bearerAuth: [] }]
 
-      response(201, 'Created successfully!') do
+      response(201, 'created successfully!') do
         schema '$ref' => '#/components/schemas/comment_failed'
 
         run_test!
       end
 
-      response(401, 'Unauthorized') { run_test! }
+      response(401, 'unauthorized') { run_test! }
 
       response(:unprocessable_entity, 'Error') do
         schema '$ref' => '#/components/schemas/comment_failed'

@@ -6,7 +6,7 @@ info:
 paths:
   "/api/v1/auth/login":
     post:
-      summary: create authentication
+      summary: authenticate
       parameters: []
       responses:
         '200':
@@ -44,9 +44,9 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/comment_get"
+                "$ref": "#/components/schemas/comments"
         '404':
-          description: ''
+          description: comments not found
   "/api/v1/posts/{post_id}/comments":
     parameters:
     - name: post_id
@@ -57,21 +57,18 @@ paths:
         type: integer
     post:
       summary: create comment
-      parameters:
-      - name: Authentication
-        in: header
-        required: true
-        schema:
-          type: string
+      parameters: []
+      security:
+      - bearerAuth: []
       responses:
         '201':
-          description: Created successfully!
+          description: created successfully!
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/comment_failed"
         '401':
-          description: Unauthorized
+          description: unauthorized
         unprocessable_entity:
           description: Error
           content:
@@ -87,21 +84,31 @@ paths:
     parameters:
     - name: user_id
       in: path
-      description: user_id
+      description: Author Id
       required: true
       schema:
-        type: string
+        type: integer
     get:
       summary: list posts
       responses:
         '200':
-          description: successful
+          description: ''
+        '404':
+          description: No posts found
 servers:
 - url: http://{defaultHost}
   variables:
     defaultHost:
       default: 127.0.0.1:3000
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      name: Authorization
+      in: header
+      required: true
   schemas:
     auth:
       type: object
@@ -119,7 +126,7 @@ components:
         token:
           type: string
       required: token
-    comment_get:
+    comments:
       type: array
       items:
         type: object
@@ -136,6 +143,27 @@ components:
             type: string
           updated_at:
             type: string
+    posts:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          title:
+            type: string
+          text:
+            type: string
+          author_id:
+            type: integer
+          comments_counter:
+            type: integer
+          likes_counter:
+            type: integer
+          created_at:
+            type: string
+          updated_at:
+            type: string
     comment:
       type: object
       properties:
@@ -147,4 +175,3 @@ components:
       properties:
         error:
           type: string
-      required: error
