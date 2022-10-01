@@ -1,4 +1,4 @@
-class ApiController < ActionController::API
+class Api::ApiController < ActionController::API
   include AuthenticationJwt
 
   before_action :authenticate_user!

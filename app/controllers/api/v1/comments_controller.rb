@@ -3,16 +3,21 @@ class Api::V1::CommentsController < Api::ApiController
 
   def index
     @comments = Comment.where(**index_params)
-    status = @comments.empty? ? :not_found : :ok
-    render(json: @comments, status:)
+
+    if @comments.empty?
+      render(json: '', status: :not_found)
+    else
+      render(json: @comments, status: :ok)
+    end
   end
 
   def create
     @comment = Comment.new(create_params)
+
     if @comment.save
-      render json: @comment, status: :created
+      render json: 'Created successfully!', status: :created
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      render json: { error: @comment.errors }, status: :unprocessable_entity
     end
   end
 
